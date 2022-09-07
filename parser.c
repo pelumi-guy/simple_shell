@@ -1,77 +1,86 @@
 #include "shell.h"
+
 /**
- * is_path_form - chekc if the given fikenname is a path
- * @data: the data strucct pointer
+ * is_cmd - determines if a file is an executable command
+ * @info: the info struct
+ * @path: path to the file
  *
- * Return: (Success)
- * ------- (Fail) otherwise
+ * Return: 1 if true, 0 otherwise
  */
-int is_path_form(sh_t *data)
+int is_cmd(info_t *info, char *path)
 {
-	if (_strchr(data->args[0], '/') != 0)
-	{
-		data->cmd = _strdup(data->args[0]);
-		return (SUCCESS);
-	}
-	return (FAIL);
-}
-#define DELIMITER ":"
-/**
- * is_short_form - chekc if the given fikenname is short form
- * @data: the data strucct pointer
- *
- * Return: (Success)
- * ------- (Fail) otherwise
- */
-void is_short_form(sh_t *data)
-{
-	char *path, *token, *_path;
 	struct stat st;
-	int exist_flag = 0;
 
-	path = _getenv("PATH");
-	_path = _strdup(path);
-	token = strtok(_path, DELIMITER);
-	while (token)
+	(void)info;
+	if (!path || stat(path, &st))
+		return (0);
+
+	if (st.st_mode & S_IFREG)
 	{
-		data->cmd = _strcat(token, data->args[0]);
-		if (stat(data->cmd, &st) == 0)
-		{
-			exist_flag += 1;
-			break;
-		}
-		free(data->cmd);
-		token = strtok(NULL, DELIMITER);
+		return (1);
 	}
-	if (exist_flag == 0)
-	{
-		data->cmd = _strdup(data->args[0]);
-	}
-	free(_path);
+	return (0);
 }
-#undef DELIMITER
-/**
- * is_builtin - checks if the command is builtin
- * @data: a pointer to the data structure
- *
- * Return: (Success) 0 is returned
- * ------- (Fail) negative number will returned
- */
-int is_builtin(sh_t *data)
-{
-	blt_t blt[] = {
-		{"exit", abort_prg},
-		{"cd", change_dir},
-		{"help", display_help},
-		{NULL, NULL}
-	};
-	int i = 0;
 
-	while ((blt + i)->cmd)
+/**
+ * dup_chars - duplicates characters
+ * @pathstr: the PATH string
+ * @start: starting index
+ * @stop: stopping index
+ *
+ * Return: pointer to new buffer
+ */
+char *dup_chars(char *pathstr, int start, int stop)
+{
+	static char buf[1024];
+	int i = 0, k = 0;
+
+	for (k = 0, i = start; i < stop; i++)
+		if (pathstr[i] != ':')
+			buf[k++] = pathstr[i];
+	buf[k] = 0;
+	return (buf);
+}
+
+/**
+ * find_path - finds this cmd in the PATH string
+ * @info: the info struct
+ * @pathstr: the PATH string
+ * @cmd: the cmd to find
+ *
+ * Return: full path of cmd if found or NULL
+ */
+char *find_path(info_t *info, char *pathstr, char *cmd)
+{
+	int i = 0, curr_pos = 0;
+	char *path;
+
+	if (!pathstr)
+		return (NULL);
+	if ((_strlen(cmd) > 2) && starts_with(cmd, "./"))
 	{
-		if (_strcmp(data->args[0], (blt + i)->cmd) == 0)
-			return (SUCCESS);
+		if (is_cmd(info, cmd))
+			return (cmd);
+	}
+	while (1)
+	{
+		if (!pathstr[i] || pathstr[i] == ':')
+		{
+			path = dup_chars(pathstr, curr_pos, i);
+			if (!*path)
+				_strcat(path, cmd);
+			else
+			{
+				_strcat(path, "/");
+				_strcat(path, cmd);
+			}
+			if (is_cmd(info, path))
+				return (path);
+			if (!pathstr[i])
+				break;
+			curr_pos = i;
+		}
 		i++;
 	}
-	return (NEUTRAL);
+	return (NULL);
 }
