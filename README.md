@@ -126,4 +126,4 @@ $
 
 ## Authors
 - Oluwapelumi Olalekan - Aspiring full stack developer [Linkedin](https://www.linkedin.com/in/oluwapelumi-olalekan-272b00153/) [Twitter](https://twitter.com/one_pelumi_guy)
-- Blessing Paul - Aspiring full stack developer [Twitter](https://twitter.com/LOISONYEBUCHI?t=_j6fvfM-N-qgVMm-gnLPmg&s=09)
+- Blessing Paul - Aspiring full stack developer [Twitter](https://twitter.com/LOISONYEBUCHI?t=_j6fvfM-N-qgVMm-gnLPmg&s=09)[Linkedin](https://www.linkedin.com/in/blessing-paul-1b5954225)
