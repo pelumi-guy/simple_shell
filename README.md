@@ -6,7 +6,6 @@
 > 	\- [Bahamat](https://unix.stackexchange.com/users/3309/bahamat)
 
 ## Overview
-
 The Simple Shell Project is an ALX Software Engineering Programme Project that concludes the first sprint of the programme.
 
 The project is designed to help students understand the basic and advanced concepts behind the shell program include process, system call, bit manipulation, file managment, error handling...
@@ -14,27 +13,25 @@ The project is designed to help students understand the basic and advanced conce
 The project is to be done in teams of 2 people.
 
 ## Learning Objectives
-
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
-	- Who designed and implemented the original Unix operating system
-	- Who wrote the first version of the UNIX shell
-	- Who invented the B programming language (the direct predecessor to the C programming language)
-	- Who is Ken Thompson
-	- How does a shell work
-	- What is a pid and a ppid
-	- How to manipulate the environment of the current process
-	- What is the difference between a function and a system call
-	- How to create processes
-	- What are the three prototypes of `main`
-	- How does the shell use the `PATH` to find the programs
-	- How to execute another program with the `execve` system call
-	- How to suspend the execution of a process until one of its children terminates
-	- What is `EOF` / “end-of-file”?
+At the end of this project, you are expected to be able to explain to anyone, without the help of Google:  
+	- Who designed and implemented the original Unix operating system  
+	- Who wrote the first version of the UNIX shell  
+	- Who invented the B programming language (the direct predecessor to the C programming language)  
+	- Who is Ken Thompson  
+	- How does a shell work  
+	- What is a pid and a ppid  
+	- How to manipulate the environment of the current process  
+	- What is the difference between a function and a system call  
+	- How to create processes  
+	- What are the three prototypes of `main`  
+	- How does the shell use the `PATH` to find the programs  
+	- How to execute another program with the `execve` system call  
+	- How to suspend the execution of a process until one of its children terminates  
+	- What is `EOF` / “end-of-file”?  
 
 ## Requirements
 
 ### General
-	
 	- Allowed editors: vi, vim, emacs
 	- All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
 	- All your files should end with a new line
@@ -47,8 +44,7 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 	- Write a README with the description of your project
 	- You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. Format, see Docker
 
-### List of allowed functions and system calls
-	
+### List of allowed functions and system calls	
 	- access (man 2 access)
 	- chdir (man 2 chdir)
 	- close (man 2 close)
@@ -84,7 +80,6 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 ## More info
 
 ### Output
-
 - The program has the exact same output as `sh (/bin/sh)` as well as the exact same error output.
 - The only difference is when you print an error, the name of the program is equivalent to your argv[0] (See below)
 Example of error with sh:
@@ -105,7 +100,6 @@ $
 ```
 
 #### Interactive and Non-interactive modes
-
 This shell program works like this in interactive mode:
 ```
 $ ./hsh
@@ -131,7 +125,5 @@ $
 ```
 
 ## Authors
-
 - Oluwapelumi Olalekan - Aspiring full stack developer [Linkedin](https://www.linkedin.com/in/oluwapelumi-olalekan-272b00153/) [Twitter](https://twitter.com/one_pelumi_guy)
-
 - Blessing Paul - Aspiring full stack developer
