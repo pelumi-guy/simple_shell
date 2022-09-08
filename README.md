@@ -32,17 +32,17 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 ## Requirements
 
 ### General
-	- Allowed editors: vi, vim, emacs
-	- All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
-	- All your files should end with a new line
-	- A README.md file, at the root of the folder of the project is mandatory
-	- Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
-	- Your shell should not have any memory leaks
-	- No more than 5 functions per file
-	- All your header files should be include guarded
-	- Use system calls only when you need to [why?](https://www.quora.com/Why-are-system-calls-expensive-in-operating-systems)
-	- Write a README with the description of your project
-	- You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. Format, see Docker
+	- Allowed editors: `vi`, `vim`, `emacs`  
+	- All your files will be compiled on Ubuntu 20.04 LTS using `gcc`, using the options `-Wall -Werror -Wextra -pedantic -std=gnu89`  
+	- All your files should end with a new line  
+	- A `README.md` file, at the root of the folder of the project is mandatory  
+	- Your code should use the `Betty` style. It will be checked using `betty-style.pl` and `betty-doc.pl`  
+	- Your shell should not have any memory leaks  
+	- No more than 5 functions per file  
+	- All your header files should be include guarded  
+	- Use system calls only when you need to [why?](https://www.quora.com/Why-are-system-calls-expensive-in-operating-systems)  
+	- Write a `README` with the description of your project  
+	- You should have an `AUTHORS` file at the root of your repository, listing all individuals having contributed content to the repository. Format, see `Docker`  
 
 ### List of allowed functions and system calls	
 	- access (man 2 access)
@@ -126,4 +126,4 @@ $
 
 ## Authors
 - Oluwapelumi Olalekan - Aspiring full stack developer [Linkedin](https://www.linkedin.com/in/oluwapelumi-olalekan-272b00153/) [Twitter](https://twitter.com/one_pelumi_guy)
-- Blessing Paul - Aspiring full stack developer [Twitter](https://twitter.com/LOISONYEBUCHI?t=_j6fvfM-N-qgVMm-gnLPmg&s=09)[Linkedin](https://www.linkedin.com/in/blessing-paul-1b5954225)
+- Blessing Paul - Aspiring full stack developer  [Linkedin](https://www.linkedin.com/in/blessing-paul-1b5954225) [Twitter](https://twitter.com/LOISONYEBUCHI?t=_j6fvfM-N-qgVMm-gnLPmg&s=09)
