@@ -1,75 +1,109 @@
 #include "shell.h"
 
 /**
- * _strlen - returns the length of a string
- * @s: the string whose length to check
+ * _strcat - concatenates two string in a path form
+ * @first: the first given destination
+ * @second: the second given source
  *
- * Return: integer length of string
+ * Return: (Success) to the newly string
+ * ------- (Fail) if it failed
  */
-int _strlen(char *s)
+char *_strcat(char *first, char *second)
 {
-	int i = 0;
+	int len1, len2, i = 0, j = 0;
+	char *result;
 
-	if (!s)
-		return (0);
-
-	while (*s++)
-		i++;
-	return (i);
+	len1 = _strlen(first);
+	len2 = _strlen(second);
+	result = malloc((len1 + len2 + 2) * sizeof(char));
+	if (!result)
+		return (NULL);
+	*result = '\0';
+	while (first[j])
+		result[i++] = first[j++];
+	result[i++] = '/';
+	j = 0;
+	while (second[j])
+		result[i++] = second[j++];
+	result[i] = '\0';
+	return (result);
 }
-
 /**
- * _strcmp - performs lexicogarphic comparison of two strangs.
- * @s1: the first strang
- * @s2: the second strang
+ * _strlen - finds the length of a given string
+ * @str: the given string
  *
- * Return: negative if s1 < s2, positive if s1 > s2, zero if s1 == s2
+ * Return: (Success) the length of the string
+ * ------- (Fail) negative value
+ */
+int _strlen(char *str)
+{
+	int len;
+
+	for (len = 0; str[len]; len++)
+		;
+	return (len);
+}
+/**
+ * _strcmp - compare two strings
+ * @s1: the first given string
+ * @s2: the second given string
+ *
+ * Return: (Success) a positive number
+ * ------- (Fail) a negative number
  */
 int _strcmp(char *s1, char *s2)
 {
-	while (*s1 && *s2)
+	int cmp = 0, i;
+
+	if (s1 == NULL || s2 == NULL)
+		return (1);
+	for (i = 0; s1[i]; i++)
 	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
+		if (s1[i] != s2[i])
+		{
+			cmp = s1[i] - s2[i];
+			break;
+		}
+		else
+			continue;
 	}
-	if (*s1 == *s2)
-		return (0);
-	else
-		return (*s1 < *s2 ? -1 : 1);
+	return (cmp);
 }
-
 /**
- * starts_with - checks if needle starts with haystack
- * @haystack: string to search
- * @needle: the substring to find
+ * _strchr - locates a character in a given string
+ * @str: the given string
+ * @c: the given string
  *
- * Return: address of next char of haystack or NULL
+ * Return: (Success) a pointer to the first occurence of c
+ * ------- (Fail) return a null pointer
  */
-char *starts_with(const char *haystack, const char *needle)
+char *_strchr(char *str, char c)
 {
-	while (*needle)
-		if (*needle++ != *haystack++)
-			return (NULL);
-	return ((char *)haystack);
+	char *ptr;
+
+	if (str == NULL)
+		return (NULL);
+	for (ptr = str; *ptr; ptr++)
+		if (*ptr == c)
+			return (ptr);
+	return (NULL);
 }
-
 /**
- * _strcat - concatenates two strings
- * @dest: the destination buffer
- * @src: the source buffer
+ * _strdup - dupicates string
+ * @str: the given string
  *
- * Return: pointer to destination buffer
+ * Return: (Success) a pointer to the duplicated string
+ * ------- (Fail) return a null pointer
  */
-char *_strcat(char *dest, char *src)
+char *_strdup(char *str)
 {
-	char *ret = dest;
+	char *dupl;
 
-	while (*dest)
-		dest++;
-	while (*src)
-		*dest++ = *src++;
-	*dest = *src;
-	return (ret);
+	if (str == NULL)
+		return (NULL);
+	dupl = malloc(_strlen(str) + 1);
+	if (dupl == NULL)
+		return (NULL);
+	_strcpy(dupl, str);
+	return (dupl);
 }
